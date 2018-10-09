@@ -1,0 +1,287 @@
+{
+	"info": {
+		"_postman_id": "00ac3a41-5646-47be-8e82-03b1542d6e6d",
+		"name": "tamagotchi-basic-mechanics",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Информация о текущем питомце",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/pet",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создать нового питомца",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Test\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/pet/create",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pet",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Текущая версия",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/version",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"version"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Покормить питомца",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/pet/feed",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pet",
+						"feed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Поиграть с питомцем",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"action\": \"brush\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/pet/play",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pet",
+						"play"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Уложить спать",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/pet/sleep",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pet",
+						"sleep"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Полечить питомца",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/pet/treat",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pet",
+						"treat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить текущее расписание дня",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/schedule",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"schedule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список всех действий",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/actions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"actions"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "66d1ee29-7304-4426-acb4-e3db6fd80267",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "09002337-aff1-4976-ac43-a961c8a56d49",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "55e4357c-debb-4c72-8801-9765369e407e",
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "b569c082-1c29-40fd-8b53-42ba5cd54174",
+			"key": "url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
