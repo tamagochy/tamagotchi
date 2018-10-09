@@ -1,0 +1,351 @@
+swagger: '2.0'
+info:
+  version: 0.0.1-SNAPSHOT
+  title: Tamagotchi Basic Mechanics API
+host: 'localhost:8085'
+basePath: /
+tags:
+  - name: action-controller
+    description: Action Controller
+  - name: pet-controller
+    description: Pet Controller
+  - name: schedule-controller
+    description: Schedule Controller
+  - name: version-controller
+    description: Version Controller
+paths:
+  /actions:
+    get:
+      tags:
+        - action-controller
+      summary: getAll
+      operationId: getAllUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponseListAction'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /pet:
+    get:
+      tags:
+        - pet-controller
+      summary: current
+      operationId: currentUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponsePet'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /pet/create:
+    post:
+      tags:
+        - pet-controller
+      summary: create
+      operationId: createUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: request
+          description: request
+          required: true
+          schema:
+            $ref: '#/definitions/PetCreateRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/ResponsePet'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /pet/feed:
+    put:
+      tags:
+        - pet-controller
+      summary: feed
+      operationId: feedUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponsePet'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /pet/play:
+    put:
+      tags:
+        - pet-controller
+      summary: play
+      operationId: playUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: request
+          description: request
+          required: true
+          schema:
+            $ref: '#/definitions/PlayRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponsePet'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /pet/sleep:
+    put:
+      tags:
+        - pet-controller
+      summary: sleep
+      operationId: sleepUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponsePet'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /pet/treat:
+    put:
+      tags:
+        - pet-controller
+      summary: treat
+      operationId: treatUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponsePet'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /schedule:
+    get:
+      tags:
+        - schedule-controller
+      summary: getSchedule
+      operationId: getScheduleUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponseListScheduleItem'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /version:
+    get:
+      tags:
+        - version-controller
+      summary: version
+      operationId: versionUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Version'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+definitions:
+  Action:
+    type: object
+    properties:
+      code:
+        type: string
+      description:
+        type: string
+      value:
+        type: integer
+        format: int32
+    title: Action
+  Error:
+    type: object
+    properties:
+      attr:
+        type: string
+      code:
+        type: string
+    title: Error
+  Pet:
+    type: object
+    properties:
+      active:
+        type: boolean
+      health:
+        type: integer
+        format: int32
+        minimum: 25
+        maximum: 100
+        exclusiveMinimum: false
+        exclusiveMaximum: false
+      hunger:
+        type: integer
+        format: int32
+        minimum: 25
+        maximum: 100
+        exclusiveMinimum: false
+        exclusiveMaximum: false
+      mood:
+        type: integer
+        format: int32
+        minimum: 25
+        maximum: 100
+        exclusiveMinimum: false
+        exclusiveMaximum: false
+      name:
+        type: string
+      rest:
+        type: integer
+        format: int32
+        minimum: 25
+        maximum: 100
+        exclusiveMinimum: false
+        exclusiveMaximum: false
+    title: Pet
+  PetCreateRequest:
+    type: object
+    properties:
+      name:
+        type: string
+    title: PetCreateRequest
+  PlayRequest:
+    type: object
+    properties:
+      action:
+        type: string
+        enum:
+          - brush
+          - takePicture
+          - playBall
+          - playTicTacToe
+    title: PlayRequest
+  ResponseListAction:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Action'
+      errors:
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+    title: ResponseListAction
+  ResponseListScheduleItem:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/ScheduleItem'
+      errors:
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+    title: ResponseListScheduleItem
+  ResponsePet:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/Pet'
+      errors:
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+    title: ResponsePet
+  ScheduleItem:
+    type: object
+    properties:
+      description:
+        type: string
+      time:
+        type: string
+    title: ScheduleItem
+  Version:
+    type: object
+    properties:
+      version:
+        type: string
+        example: 1.0.0.master.0716af9.42
+        description: Версия в формате &lt;version &gt;.&lt;git branch &gt;.&lt;commit hash&gt;.&lt;commints count&gt;
+    title: Version
