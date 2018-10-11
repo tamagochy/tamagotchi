@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 0.0.1-SNAPSHOT
+  version: 1.0.1
   title: Tamagotchi Basic Mechanics API
 host: 'localhost:8085'
 basePath: /
