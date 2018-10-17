@@ -203,7 +203,13 @@
 			"name": "Получить текущее расписание дня",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": ""
@@ -272,16 +278,23 @@
 	],
 	"variable": [
 		{
-			"id": "55e4357c-debb-4c72-8801-9765369e407e",
+			"id": "c6ce4acf-b96b-4553-80c3-6c593f163868",
 			"key": "token",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "b569c082-1c29-40fd-8b53-42ba5cd54174",
+			"id": "fca80378-e61a-4ca3-a143-a2c3bf6efc61",
 			"key": "url",
 			"value": "",
 			"type": "string"
+		},
+		{
+			"id": "d5c1e204-d9bb-4379-bb2f-94ee8de04802",
+			"key": "url",
+			"value": "",
+			"type": "string",
+			"disabled": true
 		}
 	]
 }

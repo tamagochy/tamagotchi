@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
-  version: 1.0.1
+  version: 1.0.2
   title: Tamagotchi Basic Mechanics API
-host: 'localhost:8085'
+host: '192.168.99.100:8085'
 basePath: /
 tags:
   - name: action-controller
