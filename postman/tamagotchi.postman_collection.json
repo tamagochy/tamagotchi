@@ -1,0 +1,425 @@
+{
+	"info": {
+		"_postman_id": "00ac3a41-5646-47be-8e82-03b1542d6e6d",
+		"name": "tamagotchi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "authorization",
+			"item": [
+				{
+					"name": "Текущая версия",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{authorization-host}}/version",
+							"host": [
+								"{{authorization-host}}"
+							],
+							"path": [
+								"version"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Авторизация",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"login\": \"test\",\n\t\"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{authorization-host}}/login",
+							"host": [
+								"{{authorization-host}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Регистрация",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"login\": \"test\",\r\n  \"password\": \"123456\",\r\n  \"passwordConfirm\": \"123456\",\r\n  \"email\": \"test@mail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "{{authorization-host}}/register",
+							"host": [
+								"{{authorization-host}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Отправить запрос за восстановление пароля",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"login\": \"test\",\n\t\"pageAccess\": \"test\"\n}"
+						},
+						"url": {
+							"raw": "{{authorization-host}}/password/recover",
+							"host": [
+								"{{authorization-host}}"
+							],
+							"path": [
+								"password",
+								"recover"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Восстановить пароль",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"login\": \"test\",\n\t\"newPassword\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{authorization-host}}/password/recover/confirm",
+							"host": [
+								"{{authorization-host}}"
+							],
+							"path": [
+								"password",
+								"recover",
+								"confirm"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "basic-mechanics",
+			"item": [
+				{
+					"name": "Информация о текущем питомце",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{basic-mechanics-host}}/pet",
+							"host": [
+								"{{basic-mechanics-host}}"
+							],
+							"path": [
+								"pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создать нового питомца",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Test\"\n}"
+						},
+						"url": {
+							"raw": "{{basic-mechanics-host}}/pet/create",
+							"host": [
+								"{{basic-mechanics-host}}"
+							],
+							"path": [
+								"pet",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Текущая версия",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{basic-mechanics-host}}/version",
+							"host": [
+								"{{basic-mechanics-host}}"
+							],
+							"path": [
+								"version"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Покормить питомца",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{basic-mechanics-host}}/pet/feed",
+							"host": [
+								"{{basic-mechanics-host}}"
+							],
+							"path": [
+								"pet",
+								"feed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Поиграть с питомцем",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"action\": \"brush\"\n}"
+						},
+						"url": {
+							"raw": "{{basic-mechanics-host}}/pet/play",
+							"host": [
+								"{{basic-mechanics-host}}"
+							],
+							"path": [
+								"pet",
+								"play"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Уложить спать",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{basic-mechanics-host}}/pet/sleep",
+							"host": [
+								"{{basic-mechanics-host}}"
+							],
+							"path": [
+								"pet",
+								"sleep"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Полечить питомца",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{basic-mechanics-host}}/pet/treat",
+							"host": [
+								"{{basic-mechanics-host}}"
+							],
+							"path": [
+								"pet",
+								"treat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить текущее расписание дня",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{basic-mechanics-host}}/schedule",
+							"host": [
+								"{{basic-mechanics-host}}"
+							],
+							"path": [
+								"schedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить список всех действий",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{basic-mechanics-host}}/actions",
+							"host": [
+								"{{basic-mechanics-host}}"
+							],
+							"path": [
+								"actions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "66d1ee29-7304-4426-acb4-e3db6fd80267",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "09002337-aff1-4976-ac43-a961c8a56d49",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
