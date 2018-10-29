@@ -43,7 +43,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"login\": \"test\",\n\t\"password\": \"123456\"\n}"
+							"raw": "{\n\t\"login\": \"test\",\n\t\"password\": \"12345678\"\n}"
 						},
 						"url": {
 							"raw": "{{authorization-host}}/login",
@@ -71,7 +71,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"login\": \"test\",\r\n  \"password\": \"123456\",\r\n  \"passwordConfirm\": \"123456\",\r\n  \"email\": \"test@mail.com\"\r\n}"
+							"raw": "{\r\n  \"login\": \"test\",\r\n  \"password\": \"12345678\",\r\n  \"passwordConfirm\": \"12345678\",\r\n  \"email\": \"test@mail.com\"\r\n}"
 						},
 						"url": {
 							"raw": "{{authorization-host}}/register",
@@ -128,7 +128,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"login\": \"test\",\n\t\"newPassword\": \"123456\"\n}"
+							"raw": "{\n\t\"login\": \"test\",\n\t\"newPassword\": \"987654321\"\n}"
 						},
 						"url": {
 							"raw": "{{authorization-host}}/password/recover/confirm",
