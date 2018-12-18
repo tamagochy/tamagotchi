@@ -43,7 +43,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"login\": \"test\",\n\t\"password\": \"12345678\"\n}"
+							"raw": "{\n\t\"login\": \"test\",\n\t\"password\": \"1q2w3e4r5t\"\n}"
 						},
 						"url": {
 							"raw": "{{authorization-host}}/login",
@@ -71,15 +71,15 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"login\": \"test\",\r\n  \"password\": \"12345678\",\r\n  \"passwordConfirm\": \"12345678\",\r\n  \"email\": \"test@mail.com\"\r\n}"
+							"raw": "{\r\n  \"login\": \"test\",\r\n  \"password\": \"1q2w3e4r5t\",\r\n  \"passwordConfirm\": \"1q2w3e4r5t\",\r\n  \"email\": \"laguvon@zsero.com\"\r\n}"
 						},
 						"url": {
-							"raw": "{{authorization-host}}/register",
+							"raw": "{{authorization-host}}/registration",
 							"host": [
 								"{{authorization-host}}"
 							],
 							"path": [
-								"register"
+								"registration"
 							]
 						}
 					},
@@ -143,6 +143,34 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Получение логинов по id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[1,2]"
+						},
+						"url": {
+							"raw": "{{authorization-host}}/getUserLogins",
+							"host": [
+								"{{authorization-host}}"
+							],
+							"path": [
+								"getUserLogins"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -160,7 +188,10 @@
 								"type": "text"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{basic-mechanics-host}}/pet",
 							"host": [
@@ -212,7 +243,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "{{basic-mechanics-host}}/version",
 							"host": [
@@ -234,11 +268,51 @@
 								"key": "Authorization",
 								"value": "Bearer {{token}}",
 								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "{\n\t\"action\": \"apple\",\n\t\"room\": \"kitchen\"\n}"
+						},
+						"url": {
+							"raw": "{{basic-mechanics-host}}/pet/feed",
+							"host": [
+								"{{basic-mechanics-host}}"
+							],
+							"path": [
+								"pet",
+								"feed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Покормить питомца вредным",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"action\": \"chips\",\n\t\"room\": \"kitchen\"\n}"
 						},
 						"url": {
 							"raw": "{{basic-mechanics-host}}/pet/feed",
@@ -272,7 +346,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"action\": \"brush\"\n}"
+							"raw": "{\n\t\"action\": \"brush\",\n\t\"room\": \"playRoom\"\n}"
 						},
 						"url": {
 							"raw": "{{basic-mechanics-host}}/pet/play",
@@ -324,11 +398,17 @@
 								"key": "Authorization",
 								"value": "Bearer {{token}}",
 								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "{\n\t\"action\": \"giveAntiviral\",\n\t\"room\": \"hospital\"\n}"
 						},
 						"url": {
 							"raw": "{{basic-mechanics-host}}/pet/treat",
@@ -392,6 +472,146 @@
 							],
 							"path": [
 								"actions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Список комнат",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{basic-mechanics-host}}/rooms",
+							"host": [
+								"{{basic-mechanics-host}}"
+							],
+							"path": [
+								"rooms"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "competition",
+			"item": [
+				{
+					"name": "Текущая версия",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{competition-host}}/version",
+							"host": [
+								"{{competition-host}}"
+							],
+							"path": [
+								"version"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Текущий счет",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{competition-host}}/getScore",
+							"host": [
+								"{{competition-host}}"
+							],
+							"path": [
+								"getScore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Топ пользователей",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{competition-host}}/getTopPlayers",
+							"host": [
+								"{{competition-host}}"
+							],
+							"path": [
+								"getTopPlayers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменить счет",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"actionCode\": \"test1\",\n\t\"roomCode\": \"test_room\",\n\t\"deseaseCode\": \"test\",\n\t\"time\": \"15:23\"\n}"
+						},
+						"url": {
+							"raw": "{{competition-host}}/changeScore",
+							"host": [
+								"{{competition-host}}"
+							],
+							"path": [
+								"changeScore"
 							]
 						}
 					},
